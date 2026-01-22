@@ -3,163 +3,219 @@
 <head>
 <meta charset="UTF-8">
 <title>3sixty Discord | Gaming Community</title>
+
 <style>
+* { box-sizing:border-box; }
+
 body {
   margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background: url('banner.jpeg') no-repeat center top;
-  background-size: cover;
-  color:#ffffff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: url('banner.jpeg') center / cover fixed no-repeat;
+  color:#fff;
   overflow-x:hidden;
 }
 
-/* Dark overlay for contrast */
+/* GLOBAL OVERLAY */
 body::after {
   content:'';
-  position:fixed; top:0; left:0; width:100%; height:100%;
-  background: rgba(0,0,0,0.7);
+  position:fixed;
+  inset:0;
+  background: radial-gradient(circle at top, rgba(177,156,217,0.25), rgba(0,0,0,0.85));
   z-index:-1;
 }
 
-header {
-  padding:50px 20px;
+/* HERO */
+.hero {
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   text-align:center;
-  text-shadow: 0 0 5px #b19cd9, 0 0 10px #00ffcc;
 }
 
-h1 { font-size:60px; margin-bottom:10px; animation: neonGlow 2s ease-in-out infinite alternate; }
-h1 span { color:#00ffcc; }
-@keyframes neonGlow { 
-  0%{text-shadow:0 0 5px #b19cd9,0 0 10px #b19cd9,0 0 20px #00ffcc;} 
-  50%{text-shadow:0 0 15px #00ffcc,0 0 30px #00ffcc,0 0 50px #b19cd9;} 
-  100%{text-shadow:0 0 5px #b19cd9,0 0 10px #00ffcc,0 0 20px #00ffcc;} 
+.hero h1 {
+  font-size:72px;
+  letter-spacing:4px;
+  animation: neonPulse 2.5s infinite alternate;
 }
 
-p { font-size:18px; max-width:600px; margin:10px auto; }
+.hero span { color:#00ffcc; }
+
+.hero p {
+  max-width:700px;
+  font-size:20px;
+  opacity:0.9;
+}
+
+@keyframes neonPulse {
+  from { text-shadow:0 0 10px #b19cd9,0 0 30px #00ffcc; }
+  to { text-shadow:0 0 25px #00ffcc,0 0 60px #b19cd9; }
+}
 
 .btn {
-  display:inline-block;
-  padding:15px 40px;
-  background: linear-gradient(90deg,#b19cd9,#00ffcc);
-  color:#000;
+  margin-top:25px;
+  padding:18px 45px;
+  border-radius:50px;
   font-weight:bold;
   text-decoration:none;
-  border-radius:50px;
-  margin:10px;
-  box-shadow:0 0 10px #b19cd9,0 0 20px #00ffcc;
-  transition:0.3s;
+  color:#000;
+  background: linear-gradient(90deg,#b19cd9,#00ffcc);
+  box-shadow:0 0 25px #00ffcc;
+  transition:.3s;
 }
-.btn:hover { transform:scale(1.05); box-shadow:0 0 20px #b19cd9,0 0 40px #00ffcc; }
+.btn:hover {
+  transform:scale(1.08);
+  box-shadow:0 0 50px #00ffcc;
+}
 
-section { display:flex; flex-wrap:wrap; justify-content:space-around; padding:50px 20px; gap:30px; }
+/* SECTIONS */
+.section {
+  padding:80px 5%;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap:40px;
+}
 
+/* NEON BOX */
 .box {
   background: rgba(0,0,0,0.85);
-  width:300px;
-  padding:25px;
-  border-radius:15px;
-  box-shadow:0 0 20px #b19cd9,0 0 30px #00ffcc;
-  transition:0.3s;
+  border-radius:20px;
+  padding:30px;
   position:relative;
+  box-shadow:0 0 30px rgba(177,156,217,0.4);
+  animation: glow 4s infinite alternate;
 }
-.box:hover { transform:scale(1.05); box-shadow:0 0 40px #00ffcc,0 0 60px #b19cd9; }
-.box h3 { color:#00ffcc; margin-bottom:10px; }
 
-.discord-box { width:400px; max-width:90%; }
-.discord-box iframe { width:100%; height:350px; border:none; border-radius:10px; }
-
-.forum-box { width:350px; max-width:90%; }
-.info-box { width:300px; max-width:90%; }
-
-.snowflake {
-  position: fixed;
-  top:-10px;
-  color:#ffffff;
-  font-size:1em;
-  z-index:9999;
-  user-select:none;
-  pointer-events:none;
-  animation-name:fall;
-  animation-duration:10s;
-  animation-iteration-count:infinite;
-  animation-timing-function:linear;
+@keyframes glow {
+  from { box-shadow:0 0 20px #b19cd9; }
+  to { box-shadow:0 0 45px #00ffcc; }
 }
-@keyframes fall { 0%{transform:translateY(-10px) rotate(0deg);} 100%{transform:translateY(110vh) rotate(360deg);} }
 
-footer {
-  padding:20px;
-  font-size:14px;
-  color:#ccc;
+.box h3 {
+  color:#00ffcc;
+  margin-bottom:15px;
+  font-size:22px;
+}
+
+iframe {
+  width:100%;
+  height:350px;
+  border:none;
+  border-radius:15px;
+}
+
+/* INFO STRIP */
+.info {
   text-align:center;
-  background: rgba(0,0,0,0.7);
-  margin-top:50px;
+  font-size:18px;
+  padding:60px 10%;
+  background: linear-gradient(90deg, rgba(0,255,204,0.15), rgba(177,156,217,0.15));
 }
 
-.icons-row { display:flex; justify-content:center; flex-wrap:wrap; margin-top:20px; }
-.icon {
-  width:50px;
-  height:50px;
-  margin:5px;
-  display:inline-block;
-  background-size:contain;
-  background-repeat:no-repeat;
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:20px;
+  background:#000;
+  font-size:14px;
+  opacity:0.8;
+}
+
+/* PARTICLES */
+.particle {
+  position:fixed;
+  width:4px;
+  height:4px;
+  background:#00ffcc;
+  border-radius:50%;
+  animation: float 8s linear infinite;
+  opacity:0.7;
+}
+
+@keyframes float {
+  from { transform:translateY(110vh); }
+  to { transform:translateY(-10vh); }
+}
+
+/* SNOW */
+.snow {
+  position:fixed;
+  top:-10px;
+  color:#fff;
+  animation: snow 10s linear infinite;
+}
+
+@keyframes snow {
+  from { transform:translateY(-10px); }
+  to { transform:translateY(110vh); }
 }
 </style>
 </head>
+
 <body>
 
-<header>
+<div class="hero">
   <h1>3sixty <span>Discord</span></h1>
-  <p>Zvanična gaming zajednica za prave igrače. CS2 • GTA5 • GTA:SA • League of Legends • CS 1.6</p>
+  <p>Gaming zajednica od 2020. godine. CS2 • GTA5 • GTA:SA • League of Legends • CS 1.6</p>
   <a class="btn" href="https://discord.gg/mdKV2GNC" target="_blank">JOIN DISCORD</a>
-</header>
+</div>
 
-<section>
-  <!-- Discord embed -->
-  <div class="box discord-box">
-    <h3>🌐 3sixty Discord Server</h3>
-    <iframe src="https://discord.com/widget?id=790647797367308339&theme=dark" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-    <p>Server Engineers: Unpa & Bulch</p>
-    <a class="btn" href="https://discord.gg/mdKV2GNC" target="_blank">JOIN SERVER</a>
+<div class="section">
+
+  <div class="box">
+    <h3>🌐 Discord Server</h3>
+    <iframe src="https://discord.com/widget?id=790647797367308339&theme=dark"
+      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    <p style="margin-top:15px;">Server Engineers: <b>Unpa & Bulch</b></p>
   </div>
 
-  <!-- Forum box -->
-  <div class="box forum-box">
+  <div class="box">
     <h3>💻 Forum</h3>
-    <p>Posetite nas na sajtu!</p>
-    <a class="btn" href="https://strix-cs2.forumgamers.net/forum" target="_blank">POSETITE NAS NA SAJTU</a>
+    <p>Diskusije, teme, CS2 & GTA sekcije.</p>
+    <a class="btn" href="https://strix-cs2.forumgamers.net/forum" target="_blank">
+      POSETITE NAS NA SAJTU
+    </a>
   </div>
 
-  <!-- Info box -->
-  <div class="box info-box">
-    <h3>ℹ️ O nama</h3>
-    <p>Aktivna gejmerska zajednica. CS2, GTA5, GTA:SA, League of Legends & CS 1.6.</p>
+  <div class="box">
+    <h3>🔥 O nama</h3>
+    <p>
+      Aktivna gejmerska zajednica osnovana 2020. godine.  
+      Fokus na fair play, druženje, turnire i ozbiljan gaming.
+    </p>
   </div>
-</section>
 
-<!-- Icons -->
-<div class="icons-row">
-  <div class="icon" style="background-image:url('https://img.icons8.com/ios/50/shooting-range.png');"></div>
-  <div class="icon" style="background-image:url('https://img.icons8.com/ios/50/shooting.png');"></div>
-  <div class="icon" style="background-image:url('https://img.icons8.com/ios/50/bullet.png');"></div>
+</div>
+
+<div class="info">
+  🎮 Ako voliš pravi gaming vibe – **3sixty je tvoj server.**
 </div>
 
 <footer>
-  © 2026 3sixty Discord Server • All rights reserved
+  © 2026 3sixty Discord • All rights reserved
 </footer>
 
 <script>
-  // Snowflakes
-  const snowCount=70;
-  for(let i=0;i<snowCount;i++){
-    const snow=document.createElement('div');
-    snow.className='snowflake';
-    snow.style.left=Math.random()*window.innerWidth+'px';
-    snow.style.fontSize=(Math.random()*15+10)+'px';
-    snow.style.animationDuration=(Math.random()*5+5)+'s';
-    snow.innerText='❄';
-    document.body.appendChild(snow);
-  }
+// PARTICLES
+for(let i=0;i<80;i++){
+  let p=document.createElement("div");
+  p.className="particle";
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=(Math.random()*5+5)+"s";
+  document.body.appendChild(p);
+}
+
+// SNOW
+for(let i=0;i<60;i++){
+  let s=document.createElement("div");
+  s.className="snow";
+  s.innerText="❄";
+  s.style.left=Math.random()*100+"vw";
+  s.style.fontSize=(Math.random()*15+10)+"px";
+  s.style.animationDuration=(Math.random()*5+5)+"s";
+  document.body.appendChild(s);
+}
 </script>
 
 </body>
