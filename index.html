@@ -13,7 +13,7 @@
     overflow-x: hidden;
   }
 
-  /* Animated background layers */
+  /* Animated background layer */
   body::before {
     content: '';
     position: fixed;
@@ -25,12 +25,7 @@
     animation: moveBg 60s linear infinite;
     opacity: 0.5;
   }
-
-  @keyframes moveBg {
-    0% { transform: translate(0,0); }
-    50% { transform: translate(-50px, 30px); }
-    100% { transform: translate(0,0); }
-  }
+  @keyframes moveBg { 0% { transform: translate(0,0); } 50% { transform: translate(-50px,30px); } 100% { transform: translate(0,0); } }
 
   /* Snowflakes */
   .snowflake {
@@ -46,10 +41,7 @@
     animation-iteration-count: infinite;
     animation-timing-function: linear;
   }
-  @keyframes fall {
-    0% { transform: translateY(-10px) rotate(0deg); }
-    100% { transform: translateY(110vh) rotate(360deg); }
-  }
+  @keyframes fall { 0% { transform: translateY(-10px) rotate(0deg); } 100% { transform: translateY(110vh) rotate(360deg); } }
 
   header {
     padding: 80px 20px;
@@ -57,83 +49,60 @@
     position: relative;
   }
 
-  h1 {
-    font-size: 48px;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-    animation: neonGlow 2s ease-in-out infinite alternate;
-  }
-
-  h1 span {
-    color: #b19cd9; /* ljubicasta */
-  }
-
-  @keyframes neonGlow {
-    0% { text-shadow: 0 0 5px #b19cd9, 0 0 10px #b19cd9, 0 0 20px #b19cd9; }
-    50% { text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 40px #00ffcc; }
-    100% { text-shadow: 0 0 5px #b19cd9, 0 0 10px #b19cd9, 0 0 20px #b19cd9; }
-  }
+  h1 { font-size: 48px; letter-spacing: 2px; margin-bottom: 10px; animation: neonGlow 2s ease-in-out infinite alternate; }
+  h1 span { color: #b19cd9; }
+  @keyframes neonGlow { 0% { text-shadow:0 0 5px #b19cd9,0 0 10px #b19cd9,0 0 20px #b19cd9;} 50% { text-shadow:0 0 10px #00ffcc,0 0 20px #00ffcc,0 0 40px #00ffcc;} 100% {text-shadow:0 0 5px #b19cd9,0 0 10px #b19cd9,0 0 20px #b19cd9;} }
 
   p { font-size: 18px; color: #cccccc; max-width: 600px; margin: 0 auto 30px; }
 
-  .btn {
-    display: inline-block;
-    padding: 15px 35px;
-    background: linear-gradient(90deg, #b19cd9, #00ffcc);
-    color: #000;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 50px;
-    transition: 0.3s;
-    box-shadow: 0 0 10px #b19cd9, 0 0 20px #00ffcc;
-    margin-bottom: 20px;
-  }
-  .btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #b19cd9, 0 0 40px #00ffcc;
-  }
+  .btn { display: inline-block; padding: 15px 35px; background: linear-gradient(90deg, #b19cd9,#00ffcc); color: #000; font-size: 18px; font-weight: bold; text-decoration: none; border-radius: 50px; transition: 0.3s; box-shadow:0 0 10px #b19cd9,0 0 20px #00ffcc; margin-bottom: 20px;}
+  .btn:hover { transform: scale(1.05); box-shadow:0 0 20px #b19cd9,0 0 40px #00ffcc; }
 
   section { padding: 60px 20px; background: rgba(0,0,0,0.7); position: relative; }
 
   .features { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 30px; }
 
   .box {
-    background: rgba(31,31,31,0.9);
+    background: rgba(31,31,31,0.95);
     padding: 25px;
     width: 250px;
     border-radius: 15px;
-    box-shadow: 0 0 20px #b19cd9, 0 0 30px #00ffcc;
-    transition: 0.3s;
+    box-shadow:0 0 20px #b19cd9,0 0 30px #00ffcc;
+    transition:0.3s;
     cursor: pointer;
     position: relative;
   }
-  .box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 40px #b19cd9, 0 0 60px #00ffcc;
-  }
+  .box:hover { transform: scale(1.05); box-shadow:0 0 40px #b19cd9,0 0 60px #00ffcc; }
 
   .box h3 { color: #b19cd9; margin-bottom: 10px; }
 
-  /* Tooltip za dodatne opcije */
-  .tooltip {
-    display: none;
-    position: absolute;
-    top: 110%;
-    left: 50%;
-    transform: translateX(-50%);
+  .tooltip { display:none; position:absolute; top:110%; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.95); color:#00ffcc; padding:10px; border-radius:10px; width:220px; text-align:center; z-index:10;}
+  .box:hover .tooltip { display:block; }
+
+  /* Discord server box */
+  .server-box {
     background: rgba(0,0,0,0.9);
-    color: #00ffcc;
-    padding: 10px;
-    border-radius: 10px;
-    width: 220px;
-    text-align: center;
-    z-index: 10;
+    padding:20px;
+    border-radius:15px;
+    width:300px;
+    box-shadow:0 0 20px #00ffcc,0 0 30px #b19cd9;
+    margin:20px auto;
+  }
+  .server-box h3 { color:#00ffcc; }
+  .server-box ul { list-style:none; padding:0; margin:0; text-align:left; }
+  .server-box ul li { padding:5px 0; border-bottom:1px solid rgba(0,255,204,0.2); }
+
+  footer { padding:20px; font-size:14px; color:#777; background:#0a0a0a; }
+
+  /* Icons for fun (nocopyright guns/CS2) */
+  .icon {
+    width:40px; height:40px;
+    margin:5px;
+    display:inline-block;
+    background-size:contain;
+    background-repeat:no-repeat;
   }
 
-  .box:hover .tooltip { display: block; }
-
-  footer { padding: 20px; font-size: 14px; color: #777; background: #0a0a0a; }
 </style>
 </head>
 <body>
@@ -165,26 +134,50 @@
       <div class="tooltip">Diskutujte na forumu i delite iskustva!</div>
     </div>
   </div>
+
+  <!-- Discord server prozor -->
+  <div class="server-box">
+    <h3>🌐 Discord Server</h3>
+    <ul>
+      <li>#general</li>
+      <li>#cs2-events</li>
+      <li>#gta-chill</li>
+      <li>#voice-chat</li>
+    </ul>
+    <a class="btn" href="https://discord.gg/mdKV2GNC" target="_blank">JOIN SERVER</a>
+  </div>
+
+  <!-- Forum prozor -->
+  <div class="server-box">
+    <h3>💻 Forum</h3>
+    <p>Diskutujte i pratite sve novosti!</p>
+    <a class="btn" href="https://strix-cs2.forumgamers.net/forum" target="_blank">POSJETI FORUM</a>
+  </div>
+
+  <!-- Icons / GTA/CS2 nocopyright -->
+  <div>
+    <div class="icon" style="background-image:url('https://img.icons8.com/ios/50/shooting-range.png');"></div>
+    <div class="icon" style="background-image:url('https://img.icons8.com/ios/50/shooting.png');"></div>
+    <div class="icon" style="background-image:url('https://img.icons8.com/ios/50/bullet.png');"></div>
+  </div>
 </section>
 
 <footer>
   © 2026 3sixty Discord Server • All rights reserved
 </footer>
 
-<!-- Snežne pahulje JS -->
 <script>
   const snowCount = 50;
-  for(let i = 0; i < snowCount; i++) {
-    const snow = document.createElement('div');
-    snow.className = 'snowflake';
-    snow.style.left = Math.random() * window.innerWidth + 'px';
-    snow.style.fontSize = (Math.random()*10 + 10) + 'px';
-    snow.style.animationDuration = (Math.random()*5 + 5) + 's';
-    snow.innerText = '❄';
+  for(let i=0;i<snowCount;i++){
+    const snow=document.createElement('div');
+    snow.className='snowflake';
+    snow.style.left=Math.random()*window.innerWidth+'px';
+    snow.style.fontSize=(Math.random()*10+10)+'px';
+    snow.style.animationDuration=(Math.random()*5+5)+'s';
+    snow.innerText='❄';
     document.body.appendChild(snow);
   }
 </script>
-
 </body>
 </html>
 
