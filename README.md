@@ -1,2 +1,134 @@
 # 3sixty-discord-site
 Official website for 3sixty Discord gaming community
+index.html
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <title>3sixty Discord | Gaming Community</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: #ffffff;
+      text-align: center;
+    }
+
+    header {
+      padding: 80px 20px;
+    }
+
+    h1 {
+      font-size: 48px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    h1 span {
+      color: #00ffcc;
+    }
+
+    p {
+      font-size: 18px;
+      color: #cccccc;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 35px;
+      background: #00ffcc;
+      color: #000;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #00ccaa;
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 60px 20px;
+      background: #121212;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .box {
+      background: #1f1f1f;
+      padding: 25px;
+      width: 250px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,255,204,0.1);
+    }
+
+    .box h3 {
+      color: #00ffcc;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      padding: 20px;
+      font-size: 14px;
+      color: #777;
+      background: #0a0a0a;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1><span>3sixty</span> Discord</h1>
+    <p>
+      Zvanična gaming zajednica za prave igrače.  
+      CS2 • GTA • Druženje • Eventi • Chill vibe
+    </p>
+
+    <!-- ZAMENI LINK ISPOD SA TVOJIM DISCORD INVITE LINKOM -->
+    <a class="btn" href="https://discord.gg/mdKV2GNC" target="_blank">
+      JOIN DISCORD
+    </a>
+  </header>
+
+  <section>
+    <h2>Zašto baš 3sixty?</h2>
+    <br>
+
+    <div class="features">
+      <div class="box">
+        <h3>🎮 Gaming</h3>
+        <p>CS2, GTA i ostale popularne igre uz aktivnu ekipu.</p>
+      </div>
+
+      <div class="box">
+        <h3>🔥 Aktivnost</h3>
+        <p>Dnevni chat, voice kanali, eventi i turniri.</p>
+      </div>
+
+      <div class="box">
+        <h3>💬 Zajednica</h3>
+        <p>Normalna ekipa, bez toksičnosti, svi su dobrodošli.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 3sixty Discord Server • All rights reserved
+  </footer>
+
+</body>
+</html>
