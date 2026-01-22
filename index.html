@@ -7,7 +7,7 @@
 body {
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  /* Banner u pozadini */
+  /* HD banner u pozadini */
   background: url('https://i.imgur.com/xFJIGKu.jpeg') no-repeat center top;
   background-size: cover;
   color:#ffffff;
@@ -15,11 +15,11 @@ body {
   position: relative;
 }
 
-/* Overlay za kontrast, da dark boxovi budu vidljivi */
+/* Overlay za kontrast, dark boxovi čitljivi */
 body::after {
   content:'';
   position:fixed; top:0; left:0; width:100%; height:100%;
-  background: rgba(0,0,0,0.4); /* prozirnija tamna maska da se vidi banner */
+  background: rgba(0,0,0,0.4); /* prozirnija maska da se vidi banner */
   z-index:-1;
 }
 
