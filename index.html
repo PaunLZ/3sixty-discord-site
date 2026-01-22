@@ -5,70 +5,108 @@
 <title>3sixty Discord | Gaming Community</title>
 <style>
   body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-    color: #ffffff;
-    text-align: center;
-    overflow-x: hidden;
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background: url('https://images.unsplash.com/photo-1604166862692-fd7e42beff7b?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+    background-size: cover;
+    color:#ffffff;
+    overflow-x:hidden;
   }
 
-  /* Animated background */
-  body::before {
+  /* Neon overlay gradient */
+  body::after {
     content:'';
-    position: fixed; top:0; left:0;
-    width:200%; height:200%;
-    background: url('https://images.unsplash.com/photo-1609521166086-7f7b3326a917?auto=format&fit=crop&w=1950&q=80') no-repeat center center;
-    background-size: cover;
-    z-index: -2;
-    animation: moveBg 60s linear infinite;
-    opacity:0.5;
+    position:fixed; top:0; left:0; width:100%; height:100%;
+    background: linear-gradient(135deg, rgba(177,156,217,0.3), rgba(0,255,204,0.3));
+    z-index:-1;
   }
-  @keyframes moveBg { 0% { transform: translate(0,0);} 50% { transform: translate(-50px,30px);} 100% { transform: translate(0,0);} }
+
+  header {
+    padding:50px 20px;
+    text-align:center;
+    text-shadow: 0 0 5px #b19cd9, 0 0 10px #00ffcc;
+  }
+  h1 { font-size:60px; margin-bottom:10px; animation: neonGlow 2s ease-in-out infinite alternate; }
+  h1 span { color:#00ffcc; }
+  @keyframes neonGlow { 0%{text-shadow:0 0 5px #b19cd9,0 0 10px #b19cd9,0 0 20px #00ffcc;} 50%{text-shadow:0 0 15px #00ffcc,0 0 30px #00ffcc,0 0 50px #b19cd9;} 100%{text-shadow:0 0 5px #b19cd9,0 0 10px #00ffcc,0 0 20px #00ffcc;} }
+
+  p { font-size:18px; max-width:600px; margin:10px auto; }
+
+  .btn {
+    display:inline-block;
+    padding:15px 40px;
+    background: linear-gradient(90deg,#b19cd9,#00ffcc);
+    color:#000;
+    font-weight:bold;
+    text-decoration:none;
+    border-radius:50px;
+    margin:10px;
+    box-shadow:0 0 10px #b19cd9,0 0 20px #00ffcc;
+    transition:0.3s;
+  }
+  .btn:hover { transform:scale(1.05); box-shadow:0 0 20px #b19cd9,0 0 40px #00ffcc; }
+
+  section { display:flex; flex-wrap:wrap; justify-content:space-around; padding:50px 20px; gap:30px; }
+
+  .box {
+    background: rgba(0,0,0,0.8);
+    width:300px;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 0 20px #b19cd9,0 0 30px #00ffcc;
+    transition:0.3s;
+    position:relative;
+  }
+  .box:hover { transform:scale(1.05); box-shadow:0 0 40px #00ffcc,0 0 60px #b19cd9; }
+
+  .box h3 { color:#00ffcc; margin-bottom:10px; }
+
+  /* Discord embed box */
+  .discord-box { width:400px; max-width:90%; }
+  .discord-box iframe { width:100%; height:350px; border:none; border-radius:10px; }
+
+  /* Forum box */
+  .forum-box { width:350px; max-width:90%; }
+
+  /* Info box */
+  .info-box { width:300px; max-width:90%; }
 
   /* Snowflakes */
   .snowflake {
-    position: fixed; top:-10px;
-    color:#ffffff; font-size:1em; z-index:9999;
-    user-select:none; pointer-events:none;
-    animation-name: fall; animation-duration:10s;
-    animation-iteration-count:infinite; animation-timing-function:linear;
+    position: fixed;
+    top:-10px;
+    color:#ffffff;
+    font-size:1em;
+    z-index:9999;
+    user-select:none;
+    pointer-events:none;
+    animation-name:fall;
+    animation-duration:10s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
   }
   @keyframes fall { 0%{transform:translateY(-10px) rotate(0deg);} 100%{transform:translateY(110vh) rotate(360deg);} }
 
-  header { padding: 60px 20px; background: rgba(0,0,0,0.5); position: relative; }
-  h1 { font-size: 48px; letter-spacing: 2px; margin-bottom:10px; animation: neonGlow 2s ease-in-out infinite alternate; }
-  h1 span { color: #b19cd9; }
-  @keyframes neonGlow { 0%{text-shadow:0 0 5px #b19cd9,0 0 10px #b19cd9,0 0 20px #b19cd9;} 50%{text-shadow:0 0 10px #00ffcc,0 0 20px #00ffcc,0 0 40px #00ffcc;} 100%{text-shadow:0 0 5px #b19cd9,0 0 10px #b19cd9,0 0 20px #b19cd9;} }
-
-  p { font-size: 18px; color:#cccccc; max-width:600px; margin:0 auto 30px; }
-  .btn { display:inline-block; padding:15px 35px; background:linear-gradient(90deg,#b19cd9,#00ffcc); color:#000; font-size:18px; font-weight:bold; text-decoration:none; border-radius:50px; transition:0.3s; box-shadow:0 0 10px #b19cd9,0 0 20px #00ffcc; margin-bottom:20px; }
-  .btn:hover { transform: scale(1.05); box-shadow:0 0 20px #b19cd9,0 0 40px #00ffcc; }
-
-  section { padding:60px 20px; background: rgba(0,0,0,0.7); position:relative; }
-  .features { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:30px; }
-
-  .box {
-    background: rgba(31,31,31,0.95);
-    padding:25px; width:250px;
-    border-radius:15px;
-    box-shadow:0 0 20px #b19cd9,0 0 30px #00ffcc;
-    transition:0.3s; cursor:pointer; position:relative;
+  footer {
+    padding:20px;
+    font-size:14px;
+    color:#ccc;
+    text-align:center;
+    background: rgba(0,0,0,0.7);
+    margin-top:50px;
   }
-  .box:hover { transform: scale(1.05); box-shadow:0 0 40px #b19cd9,0 0 60px #00ffcc; }
-  .box h3 { color:#b19cd9; margin-bottom:10px; }
-  .tooltip { display:none; position:absolute; top:110%; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.95); color:#00ffcc; padding:10px; border-radius:10px; width:220px; text-align:center; z-index:10; }
-  .box:hover .tooltip { display:block; }
 
-  /* Discord server embed box */
-  .server-box { background: rgba(0,0,0,0.9); padding:20px; border-radius:15px; width:350px; box-shadow:0 0 20px #00ffcc,0 0 30px #b19cd9; margin:20px auto; }
-  .server-box h3 { color:#00ffcc; }
-  .server-box iframe { width:100%; height:300px; border:none; border-radius:10px; }
+  /* Icons row */
+  .icons-row { display:flex; justify-content:center; flex-wrap:wrap; margin-top:20px; }
+  .icon {
+    width:50px;
+    height:50px;
+    margin:5px;
+    display:inline-block;
+    background-size:contain;
+    background-repeat:no-repeat;
+  }
 
-  footer { padding:20px; font-size:14px; color:#777; background:#0a0a0a; }
-
-  /* Icons */
-  .icon { width:40px; height:40px; margin:5px; display:inline-block; background-size:contain; background-repeat:no-repeat; }
 </style>
 </head>
 <body>
@@ -80,42 +118,47 @@
 </header>
 
 <section>
-  <h2>Naš server</h2>
-
-  <!-- Discord embed -->
-  <div class="server-box">
+  <!-- Discord server box -->
+  <div class="box discord-box">
     <h3>🌐 3sixty Discord Server</h3>
-    <p>Server postoji od 2020. Vlasnici: Unpa, Bulch. Server Engineers: 3sixty Crew.</p>
+    <p>Server postoji od 2020. Vlasnici: Unpa & Bulch. Server Engineers: Unpa & Bulch</p>
     <iframe src="https://discord.com/widget?id=790647797367308339&theme=dark" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
     <a class="btn" href="https://discord.gg/mdKV2GNC" target="_blank">JOIN SERVER</a>
   </div>
 
-  <!-- Forum -->
-  <div class="server-box">
+  <!-- Forum box -->
+  <div class="box forum-box">
     <h3>💻 Forum</h3>
     <p>Diskutujte i pratite sve novosti!</p>
     <a class="btn" href="https://strix-cs2.forumgamers.net/forum" target="_blank">POSJETI FORUM</a>
   </div>
 
-  <!-- Icons -->
-  <div>
-    <div class="icon" style="background-image:url('https://img.icons8.com/ios/50/shooting-range.png');"></div>
-    <div class="icon" style="background-image:url('https://img.icons8.com/ios/50/shooting.png');"></div>
-    <div class="icon" style="background-image:url('https://img.icons8.com/ios/50/bullet.png');"></div>
+  <!-- Info box -->
+  <div class="box info-box">
+    <h3>ℹ️ O nama</h3>
+    <p>Server postoji od 2020. Aktivna zajednica gejmera. Vlasnici: Unpa & Bulch. Server Engineers: Unpa & Bulch. CS2, GTA5 & chill vibe.</p>
   </div>
 </section>
+
+<!-- Icons -->
+<div class="icons-row">
+  <div class="icon" style="background-image:url('https://img.icons8.com/ios/50/shooting-range.png');"></div>
+  <div class="icon" style="background-image:url('https://img.icons8.com/ios/50/shooting.png');"></div>
+  <div class="icon" style="background-image:url('https://img.icons8.com/ios/50/bullet.png');"></div>
+</div>
 
 <footer>
   © 2026 3sixty Discord Server • All rights reserved
 </footer>
 
 <script>
-  const snowCount = 50;
+  // Snowflakes
+  const snowCount=70;
   for(let i=0;i<snowCount;i++){
     const snow=document.createElement('div');
     snow.className='snowflake';
     snow.style.left=Math.random()*window.innerWidth+'px';
-    snow.style.fontSize=(Math.random()*10+10)+'px';
+    snow.style.fontSize=(Math.random()*15+10)+'px';
     snow.style.animationDuration=(Math.random()*5+5)+'s';
     snow.innerText='❄';
     document.body.appendChild(snow);
