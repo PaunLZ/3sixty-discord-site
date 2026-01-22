@@ -2,97 +2,109 @@
 <html lang="sr">
 <head>
 <meta charset="UTF-8">
-<title>3sixty Gaming Community</title>
+<title>3sixty Discord | Gaming Community</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
 }
 
 body {
-  background: 
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  background:
     linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
-    url("https://i.imgur.com/xFJIGKu.jpeg") no-repeat center center fixed;
+    url('https://i.imgur.com/xFJIGKu.jpeg') no-repeat center top;
   background-size: cover;
-  color: #fff;
 }
 
-/* ===== HEADER ===== */
+/* HERO */
 header {
-  padding: 80px 20px;
+  padding: 120px 20px;
   text-align: center;
 }
 
 header h1 {
   font-size: 64px;
-  letter-spacing: 4px;
-  text-shadow: 0 0 20px #9b5cff;
+  margin: 0;
+  letter-spacing: 3px;
+}
+
+header h1 span {
+  color: #b84cff;
 }
 
 header p {
-  margin-top: 15px;
   font-size: 20px;
-  color: #ccc;
-}
-
-/* ===== MAIN ===== */
-main {
-  padding: 40px 5%;
-}
-
-/* FLEX WRAPPER */
-.flex {
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-/* BOXES */
-.box {
-  background: rgba(15,15,15,0.85);
-  border: 1px solid rgba(155,92,255,0.4);
-  border-radius: 14px;
-  padding: 25px;
-  width: 48%;
-  box-shadow: 0 0 20px rgba(155,92,255,0.15);
-}
-
-.box h3 {
-  margin-bottom: 15px;
-  color: #b88cff;
-}
-
-/* TEXT */
-.box p {
-  margin-bottom: 10px;
-  line-height: 1.5;
+  max-width: 700px;
+  margin: 20px auto 40px;
   color: #ddd;
 }
 
-/* ABOUT */
-.about {
-  margin-bottom: 40px;
-}
-
-/* LINKS */
-a {
-  color: #9b5cff;
-  text-decoration: none;
+.btn {
+  display: inline-block;
+  padding: 16px 40px;
+  background: #b84cff;
+  color: #000;
   font-weight: bold;
+  text-decoration: none;
+  border-radius: 40px;
+  transition: 0.3s;
 }
 
-a:hover {
-  text-decoration: underline;
+.btn:hover {
+  background: #9a32e6;
+  transform: scale(1.05);
+}
+
+/* LAYOUT */
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  padding: 60px 40px;
+}
+
+.box {
+  background: rgba(20,20,20,0.85);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 0 25px rgba(184,76,255,0.2);
+}
+
+.box h2 {
+  color: #b84cff;
+  margin-top: 0;
+}
+
+/* CENTER ABOUT */
+.about {
+  text-align: center;
+}
+
+/* DISCORD */
+.discord iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 12px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #0a0a0a;
+  color: #777;
+  font-size: 14px;
 }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
-  .box {
-    width: 100%;
+@media (max-width: 1000px) {
+  .main {
+    grid-template-columns: 1fr;
   }
 }
 </style>
@@ -101,74 +113,69 @@ a:hover {
 <body>
 
 <header>
-  <h1>3SIXTY</h1>
-  <p>Gaming Discord Community • Since 2020</p>
+  <h1><span>3sixty</span> Discord</h1>
+  <p>Gaming zajednica od 2020. godine • CS2 • GTA5 • GTA SA • LoL • CS 1.6</p>
+  <a class="btn" href="https://discord.gg/mdKV2GNC" target="_blank">JOIN DISCORD</a>
 </header>
 
-<main>
+<section class="main">
 
-  <!-- ABOUT -->
+  <!-- FAQ LEFT -->
+  <div class="box">
+    <h2>❓ Česta pitanja</h2>
+    <p><b>Da li je server aktivan?</b><br>Da, dnevna aktivnost i voice kanali.</p>
+    <p><b>Koje igre se igraju?</b><br>CS2, GTA5, GTA SA, LoL, CS 1.6.</p>
+    <p><b>Od kada postojimo?</b><br>Server postoji od 2020. godine.</p>
+  </div>
+
+  <!-- ABOUT CENTER -->
   <div class="box about">
-    <div class="about-center">
-  <div class="box">
-    <div class="about-center">
-  <div class="box">
-    <h3>O nama</h3>
+    <h2>👑 O nama</h2>
     <p>
-      Server postoji od 2020. godine.  
-      Aktivna zajednica gejmera.  
-      Server Engineers: Unpa & Bulch.  
-      Igre: CS2, GTA5, GTA:SA, League of Legends, CS 1.6
+      3sixty je gaming Discord zajednica osnovana 2020. godine.  
+      Fokusirani smo na kvalitetnu ekipu, dobar vibe i aktivan gejming.
+    </p>
+    <p>
+      <b>Vlasnici:</b> Unpa & Bulch<br>
+      <b>Server Engineers:</b> Unpa & Bulch
+    </p>
+
+    <p>
+      👉 <a href="https://strix-cs2.forumgamers.net/forum" target="_blank" style="color:#b84cff;">
+      Posetite nas na Sajtu
+      </a>
     </p>
   </div>
-</div>
 
-  <iframe
-    src="https://discord.com/widget?id=790647797367308339&theme=dark"
-    width="100%"
-    height="500"
-    allowtransparency="true"
-    frameborder="0"
-    sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-  </iframe>
-
-  <p style="margin-top:10px;">
-    👉 <a href="https://discord.gg/mdKV2GNC" target="_blank">Pridruži se Discord serveru</a>
-  </p>
-</div>
-
-  <!-- FAQ + RULES -->
-  <div class="flex">
-
-    <!-- FAQ LEFT -->
-    <div class="box">
-      <h3>❓ Česta pitanja</h3>
-      <p><b>Kako da se pridružim?</b><br>
-      Klikni na Discord invite i uđi.</p>
-
-      <p><b>Da li je server aktivan?</b><br>
-      Da, svakodnevno aktivna zajednica.</p>
-
-      <p><b>Koje igre se igraju?</b><br>
-      CS2, GTA 5, GTA SA, LoL, CS 1.6.</p>
-    </div>
-
-    <!-- RULES RIGHT -->
-    <div class="box">
-      <h3>📰 Pravila servera</h3>
-      <p>❌ Zabranjeno vređanje porodice</p>
-      <p>❌ Zabranjeno svađanje</p>
-      <p>❌ Zabranjeno abusanje / glitchovanje botova</p>
-      <p>❌ Zabranjeno spamovanje</p>
-      <p>❌ Zabranjeno ometanje voice sekcije</p>
-      <p>✅ Channel koristiti za odgovarajući sadržaj</p>
-      <p>✅ Dozvoljeno psovanje (bez preterivanja)</p>
-      <p>✅ Uživajte na serveru</p>
-    </div>
-
+  <!-- RULES RIGHT -->
+  <div class="box">
+    <h2>📜 Pravila servera</h2>
+    <p>❌ Zabranjeno vređanje porodice</p>
+    <p>❌ Zabranjeno svađanje</p>
+    <p>❌ Zabranjeno abusanje botova</p>
+    <p>❌ Zabranjeno spamovanje</p>
+    <p>❌ Zabranjeno ometati voice</p>
+    <p>✅ Koristiti kanale za namenjeni sadržaj</p>
+    <p>✅ Psovanje dozvoljeno (umereno)</p>
+    <p>✅ Uživajte na serveru</p>
   </div>
 
-</main>
+</section>
+
+<section class="main">
+  <div class="box discord">
+    <h2>🟣 Discord server (uživo)</h2>
+    <iframe
+      src="https://discord.com/widget?id=790647797367308339&theme=dark"
+      allowtransparency="true"
+      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+    </iframe>
+  </div>
+</section>
+
+<footer>
+  © 2026 3sixty Discord Server • All rights reserved
+</footer>
 
 </body>
 </html>
