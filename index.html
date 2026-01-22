@@ -1,133 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>3sixty Discord | Gaming Community</title>
-  <style>
-    /* Body i pozadina */
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: url('https://images.unsplash.com/photo-1609521166086-7f7b3326a917?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
-      background-size: cover;
-      color: #ffffff;
-      text-align: center;
-      overflow-x: hidden;
-    }
+<meta charset="UTF-8">
+<title>3sixty Discord | Gaming Community</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    color: #ffffff;
+    text-align: center;
+    overflow-x: hidden;
+  }
 
-    /* Header */
-    header {
-      padding: 80px 20px;
-      background: rgba(0,0,0,0.5);
-      position: relative;
-    }
+  /* Animated background layers */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 200%; height: 200%;
+    background: url('https://images.unsplash.com/photo-1609521166086-7f7b3326a917?auto=format&fit=crop&w=1950&q=80') no-repeat center center;
+    background-size: cover;
+    z-index: -2;
+    animation: moveBg 60s linear infinite;
+    opacity: 0.5;
+  }
 
-    h1 {
-      font-size: 48px;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-      animation: neonGlow 2s ease-in-out infinite alternate;
-    }
+  @keyframes moveBg {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(-50px, 30px); }
+    100% { transform: translate(0,0); }
+  }
 
-    h1 span {
-      color: #b19cd9; /* ljubicasta */
-    }
+  /* Snowflakes */
+  .snowflake {
+    position: fixed;
+    top: -10px;
+    color: #ffffff;
+    font-size: 1em;
+    z-index: 9999;
+    user-select: none;
+    pointer-events: none;
+    animation-name: fall;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-10px) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+  }
 
-    @keyframes neonGlow {
-      0% { text-shadow: 0 0 5px #b19cd9, 0 0 10px #b19cd9, 0 0 20px #b19cd9; }
-      50% { text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 40px #00ffcc; }
-      100% { text-shadow: 0 0 5px #b19cd9, 0 0 10px #b19cd9, 0 0 20px #b19cd9; }
-    }
+  header {
+    padding: 80px 20px;
+    background: rgba(0,0,0,0.5);
+    position: relative;
+  }
 
-    p {
-      font-size: 18px;
-      color: #cccccc;
-      max-width: 600px;
-      margin: 0 auto 30px;
-    }
+  h1 {
+    font-size: 48px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    animation: neonGlow 2s ease-in-out infinite alternate;
+  }
 
-    /* Dugme neon */
-    .btn {
-      display: inline-block;
-      padding: 15px 35px;
-      background: linear-gradient(90deg, #b19cd9, #00ffcc);
-      color: #000;
-      font-size: 18px;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 50px;
-      transition: 0.3s;
-      box-shadow: 0 0 10px #b19cd9, 0 0 20px #00ffcc;
-    }
+  h1 span {
+    color: #b19cd9; /* ljubicasta */
+  }
 
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #b19cd9, 0 0 40px #00ffcc;
-    }
+  @keyframes neonGlow {
+    0% { text-shadow: 0 0 5px #b19cd9, 0 0 10px #b19cd9, 0 0 20px #b19cd9; }
+    50% { text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 40px #00ffcc; }
+    100% { text-shadow: 0 0 5px #b19cd9, 0 0 10px #b19cd9, 0 0 20px #b19cd9; }
+  }
 
-    /* Sekcija */
-    section {
-      padding: 60px 20px;
-      background: rgba(0,0,0,0.7);
-      position: relative;
-    }
+  p { font-size: 18px; color: #cccccc; max-width: 600px; margin: 0 auto 30px; }
 
-    /* Boxovi */
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 30px;
-    }
+  .btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background: linear-gradient(90deg, #b19cd9, #00ffcc);
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #b19cd9, 0 0 20px #00ffcc;
+    margin-bottom: 20px;
+  }
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #b19cd9, 0 0 40px #00ffcc;
+  }
 
-    .box {
-      background: rgba(31,31,31,0.9);
-      padding: 25px;
-      width: 250px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px #b19cd9, 0 0 30px #00ffcc;
-      transition: 0.3s;
-    }
+  section { padding: 60px 20px; background: rgba(0,0,0,0.7); position: relative; }
 
-    .box:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 40px #b19cd9, 0 0 60px #00ffcc;
-    }
+  .features { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 30px; }
 
-    .box h3 {
-      color: #b19cd9;
-      margin-bottom: 10px;
-    }
+  .box {
+    background: rgba(31,31,31,0.9);
+    padding: 25px;
+    width: 250px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #b19cd9, 0 0 30px #00ffcc;
+    transition: 0.3s;
+    cursor: pointer;
+    position: relative;
+  }
+  .box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px #b19cd9, 0 0 60px #00ffcc;
+  }
 
-    /* Footer */
-    footer {
-      padding: 20px;
-      font-size: 14px;
-      color: #777;
-      background: #0a0a0a;
-    }
+  .box h3 { color: #b19cd9; margin-bottom: 10px; }
 
-    /* Snežne pahulje */
-    .snowflake {
-      position: fixed;
-      top: -10px;
-      color: #ffffff;
-      font-size: 1em;
-      z-index: 9999;
-      user-select: none;
-      pointer-events: none;
-      animation-name: fall;
-      animation-duration: 10s;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-    }
+  /* Tooltip za dodatne opcije */
+  .tooltip {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.9);
+    color: #00ffcc;
+    padding: 10px;
+    border-radius: 10px;
+    width: 220px;
+    text-align: center;
+    z-index: 10;
+  }
 
-    @keyframes fall {
-      0% { transform: translateY(-10px) rotate(0deg); }
-      100% { transform: translateY(110vh) rotate(360deg); }
-    }
-  </style>
+  .box:hover .tooltip { display: block; }
+
+  footer { padding: 20px; font-size: 14px; color: #777; background: #0a0a0a; }
+</style>
 </head>
 <body>
 
@@ -143,16 +150,19 @@
     <div class="box">
       <h3>🎮 Gaming</h3>
       <p>CS2, GTA i ostale popularne igre uz aktivnu ekipu.</p>
+      <div class="tooltip">Forum: <a href="https://strix-cs2.forumgamers.net/forum" target="_blank" style="color:#00ffcc;text-decoration:none;">strix-cs2.forumgamers.net</a></div>
     </div>
 
     <div class="box">
       <h3>🔥 Aktivnost</h3>
       <p>Dnevni chat, voice kanali, eventi i turniri.</p>
+      <div class="tooltip">Prati evente i turnire na forumu!</div>
     </div>
 
     <div class="box">
       <h3>💬 Zajednica</h3>
       <p>Normalna ekipa, bez toksičnosti, svi su dobrodošli.</p>
+      <div class="tooltip">Diskutujte na forumu i delite iskustva!</div>
     </div>
   </div>
 </section>
