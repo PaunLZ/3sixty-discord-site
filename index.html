@@ -1,180 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sr">
 <head>
 <meta charset="UTF-8">
-<title>3sixty Discord | Gaming Community</title>
+<title>3sixty Gaming Community</title>
+
 <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
 body {
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  /* HD banner u pozadini */
-  background: url('https://i.imgur.com/xFJIGKu.jpeg') no-repeat center top;
+  background: 
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+    url("https://i.imgur.com/xFJIGKu.jpeg") no-repeat center center fixed;
   background-size: cover;
-  color:#ffffff;
-  overflow-x:hidden;
-  position: relative;
+  color: #fff;
 }
 
-/* Overlay za kontrast, dark boxovi čitljivi */
-body::after {
-  content:'';
-  position:fixed; top:0; left:0; width:100%; height:100%;
-  background: rgba(0,0,0,0.4); /* prozirnija maska da se vidi banner */
-  z-index:-1;
-}
-
+/* ===== HEADER ===== */
 header {
-  padding:50px 20px;
-  text-align:center;
-  text-shadow: 0 0 5px #b19cd9, 0 0 10px #00ffcc;
+  padding: 80px 20px;
+  text-align: center;
 }
 
-h1 { font-size:60px; margin-bottom:10px; animation: neonGlow 2s ease-in-out infinite alternate; }
-h1 span { color:#00ffcc; }
-@keyframes neonGlow { 
-  0%{text-shadow:0 0 5px #b19cd9,0 0 10px #b19cd9,0 0 20px #00ffcc;} 
-  50%{text-shadow:0 0 15px #00ffcc,0 0 30px #00ffcc,0 0 50px #b19cd9;} 
-  100%{text-shadow:0 0 5px #b19cd9,0 0 10px #00ffcc,0 0 20px #00ffcc;} 
+header h1 {
+  font-size: 64px;
+  letter-spacing: 4px;
+  text-shadow: 0 0 20px #9b5cff;
 }
 
-p { font-size:18px; max-width:600px; margin:10px auto; }
-
-.btn {
-  display:inline-block;
-  padding:15px 40px;
-  background: linear-gradient(90deg,#b19cd9,#00ffcc);
-  color:#000;
-  font-weight:bold;
-  text-decoration:none;
-  border-radius:50px;
-  margin:10px;
-  box-shadow:0 0 10px #b19cd9,0 0 20px #00ffcc;
-  transition:0.3s;
+header p {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #ccc;
 }
-.btn:hover { transform:scale(1.05); box-shadow:0 0 20px #b19cd9,0 0 40px #00ffcc; }
 
-section { display:flex; flex-wrap:wrap; justify-content:space-around; padding:50px 20px; gap:30px; }
+/* ===== MAIN ===== */
+main {
+  padding: 40px 5%;
+}
 
+/* FLEX WRAPPER */
+.flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* BOXES */
 .box {
-  background: rgba(0,0,0,0.85);
-  width:300px;
-  padding:25px;
-  border-radius:15px;
-  box-shadow:0 0 20px #b19cd9,0 0 30px #00ffcc;
-  transition:0.3s;
-  position:relative;
+  background: rgba(15,15,15,0.85);
+  border: 1px solid rgba(155,92,255,0.4);
+  border-radius: 14px;
+  padding: 25px;
+  width: 48%;
+  box-shadow: 0 0 20px rgba(155,92,255,0.15);
 }
-.box:hover { transform:scale(1.05); box-shadow:0 0 40px #00ffcc,0 0 60px #b19cd9; }
-.box h3 { color:#00ffcc; margin-bottom:10px; }
 
-.discord-box { width:400px; max-width:90%; }
-.discord-box iframe { width:100%; height:350px; border:none; border-radius:10px; }
-
-.forum-box { width:350px; max-width:90%; }
-.info-box { width:300px; max-width:90%; }
-
-.snowflake {
-  position: fixed;
-  top:-10px;
-  color:#ffffff;
-  font-size:1em;
-  z-index:9999;
-  user-select:none;
-  pointer-events:none;
-  animation-name:fall;
-  animation-duration:10s;
-  animation-iteration-count:infinite;
-  animation-timing-function:linear;
+.box h3 {
+  margin-bottom: 15px;
+  color: #b88cff;
 }
-@keyframes fall { 0%{transform:translateY(-10px) rotate(0deg);} 100%{transform:translateY(110vh) rotate(360deg);} }
 
-footer {
-  padding:20px;
-  font-size:14px;
-  color:#ccc;
-  text-align:center;
-  background: rgba(0,0,0,0.7);
-  margin-top:50px;
+/* TEXT */
+.box p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+/* ABOUT */
+.about {
+  margin-bottom: 40px;
+}
+
+/* LINKS */
+a {
+  color: #9b5cff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .box {
+    width: 100%;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <header>
-  <h1>3sixty <span>Discord</span></h1>
-  <p>Zvanična gaming zajednica za prave igrače. CS2 • GTA5 • GTA:SA • League of Legends • CS 1.6</p>
-  <a class="btn" href="https://discord.gg/mdKV2GNC" target="_blank">JOIN DISCORD</a>
+  <h1>3SIXTY</h1>
+  <p>Gaming Discord Community • Since 2020</p>
 </header>
-<div class="box info-box">
-  <h3>❓ FAQ – Često postavljena pitanja</h3>
-<div class="box info-box">
- <div class="box info-box rules-box">
-  <h3>📰 Pravila servera</h3>
 
-  <p>❌ Zabranjeno vređanje porodice</p>
-  <p>❌ Zabranjeno svađanje</p>
-  <p>❌ Zabranjeno abusanje / glitchovanje botova</p>
-  <p>❌ Zabranjeno spamovanje</p>
-  <p>❌ Zabranjeno ometanje voice sekcije</p>
+<main>
 
-  <p>✅ Channel koristiti za tu vrstu kontenta</p>
-  <p>✅ Dozvoljeno psovanje (bez preterivanja)</p>
-  <p>✅ Uživajte na serveru</p>
-</div>
-
-
-  <p><strong>➤ Da li je server besplatan?</strong><br>
-  Da, 3sixty Discord je potpuno besplatan za sve članove.</p>
-
-  <p><strong>➤ Koje igre se najviše igraju?</strong><br>
-  CS2, GTA5, GTA San Andreas, League of Legends i CS 1.6.</p>
-
-  <p><strong>➤ Da li je dozvoljen voice chat?</strong><br>
-  Da, imamo aktivne voice kanale za druženje i gejming.</p>
-
-  <p><strong>➤ Kako da dobijem role?</strong><br>
-  Role se dobijaju automatski ili preko administratora.</p>
-
-  <p><strong>➤ Od kada server postoji?</strong><br>
-  Server postoji od 2020. godine.</p>
-</div>
-
-<section>
-  <div class="box discord-box">
-    <h3>🌐 3sixty Discord Server</h3>
-    <iframe src="https://discord.com/widget?id=790647797367308339&theme=dark" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-    <p>Server Engineers: Unpa & Bulch</p>
-    <a class="btn" href="https://discord.gg/mdKV2GNC" target="_blank">JOIN SERVER</a>
+  <!-- ABOUT -->
+  <div class="box about">
+    <h3>🎮 O nama</h3>
+    <p>Server postoji od <b>2020. godine</b> i okuplja aktivnu zajednicu gejmera.</p>
+    <p><b>Vlasnici:</b> Unpa & Bulch</p>
+    <p><b>Server Engineers:</b> Unpa & Bulch</p>
+    <p>CS2, GTA 5, GTA: San Andreas, League of Legends & CS 1.6</p>
+    <p>👉 <a href="https://strix-cs2.forumgamers.net/forum" target="_blank">Posetite nas na sajtu</a></p>
   </div>
 
-  <div class="box forum-box">
-    <h3>💻 Forum</h3>
-    <p>Posetite nas na sajtu!</p>
-    <a class="btn" href="https://strix-cs2.forumgamers.net/forum" target="_blank">POSETITE NAS NA SAJTU</a>
+  <!-- FAQ + RULES -->
+  <div class="flex">
+
+    <!-- FAQ LEFT -->
+    <div class="box">
+      <h3>❓ Česta pitanja</h3>
+      <p><b>Kako da se pridružim?</b><br>
+      Klikni na Discord invite i uđi.</p>
+
+      <p><b>Da li je server aktivan?</b><br>
+      Da, svakodnevno aktivna zajednica.</p>
+
+      <p><b>Koje igre se igraju?</b><br>
+      CS2, GTA 5, GTA SA, LoL, CS 1.6.</p>
+    </div>
+
+    <!-- RULES RIGHT -->
+    <div class="box">
+      <h3>📰 Pravila servera</h3>
+      <p>❌ Zabranjeno vređanje porodice</p>
+      <p>❌ Zabranjeno svađanje</p>
+      <p>❌ Zabranjeno abusanje / glitchovanje botova</p>
+      <p>❌ Zabranjeno spamovanje</p>
+      <p>❌ Zabranjeno ometanje voice sekcije</p>
+      <p>✅ Channel koristiti za odgovarajući sadržaj</p>
+      <p>✅ Dozvoljeno psovanje (bez preterivanja)</p>
+      <p>✅ Uživajte na serveru</p>
+    </div>
+
   </div>
 
-  <div class="box info-box">
-    <h3>ℹ️ O nama</h3>
-    <p>Aktivna gejmerska zajednica. CS2, GTA5, GTA:SA, League of Legends & CS 1.6.</p>
-  </div>
-</section>
-
-<footer>
-  © 2026 3sixty Discord Server • All rights reserved
-</footer>
-
-<script>
-  const snowCount=70;
-  for(let i=0;i<snowCount;i++){
-    const snow=document.createElement('div');
-    snow.className='snowflake';
-    snow.style.left=Math.random()*window.innerWidth+'px';
-    snow.style.fontSize=(Math.random()*15+10)+'px';
-    snow.style.animationDuration=(Math.random()*5+5)+'s';
-    snow.innerText='❄';
-    document.body.appendChild(snow);
-  }
-</script>
+</main>
 
 </body>
 </html>
